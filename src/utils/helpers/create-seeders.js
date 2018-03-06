@@ -1,11 +1,12 @@
 const md5 = require('md5');
+const bases = require('bases');
 
 
 const objCreation = (max) => {
   const obj = {};
   for (let i = 0; i < max; i += 1) {
     const longUrl = `http://mylongurl${i}`;
-    let shortUrl = md5(longUrl).slice(0, 6);
+    let shortUrl = bases.toBase62(bases.fromBase16(md5(longUrl))).slice(0, 6);
     let head = 1;
     while (true) {
       head %= 32;
