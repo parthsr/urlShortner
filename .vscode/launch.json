@@ -7,6 +7,15 @@
     {
         "type": "node",
         "request": "launch",
+        "name": "jest Tests",
+        "program": "${workspaceFolder}/node_modules/.bin/jest",
+        "env":{
+            "NODE_ENV":"test",
+        }
+    },
+    {
+        "type": "node",
+        "request": "launch",
         "name": "server.js",
         "program": "${workspaceFolder}/src/server.js"
     },

@@ -1,4 +1,4 @@
-const objCreation = require('../../../src/utils/helpers/create-seeders');
+const objCreation = require('../../../../src/utils/helpers/create-seeders');
 
 describe('testing the seeder helper functions', () => {
   test('testing if the file returns an object or not', () => {
