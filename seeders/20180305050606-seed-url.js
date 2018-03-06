@@ -1,4 +1,5 @@
 const objCreation = require('../src/./utils/helpers/create-seeders');
+const Models = require('../models');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -13,7 +14,8 @@ module.exports = {
       }], {});
     */
     const obj = objCreation(1000000);
-    return queryInterface.bulkInsert('urls', Object.values(obj), {});
+    return Models.urls.bulkCreate(Object.values(obj));
+    // return queryInterface.bulkInsert('urls', obj, {});
   },
 
   down: (queryInterface, Sequelize) =>

@@ -16,7 +16,10 @@ const objCreation = (max) => {
         head += 1;
       }
     }
-    obj[shortUrl] = { shortUrl, longUrl };
+    obj[shortUrl] = {
+      shortUrl,
+      longUrl,
+    };
   }
   return obj;
 };
