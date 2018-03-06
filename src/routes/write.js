@@ -3,9 +3,9 @@ const shortUrlFunction = require('../../src/utils/helpers/createShort');
 
 module.exports = [{
   method: 'POST',
-  path: '/write/{longUrl}',
+  path: '/write',
   handler: (request, reply) => {
-    const { longUrl } = request.params;
+    const { longUrl } = request.payload;
     const shortUrl = shortUrlFunction(longUrl);
     reply(recursion(longUrl, shortUrl, 0, 6));
   },

@@ -15,7 +15,8 @@ describe('checking if the write route works or not', () => {
   test('checking if the code is of lngth 6', (done) => {
     const options = {
       method: 'POST',
-      url: '/write/parth',
+      url: '/write',
+      payload: { longUrl: 'parth' },
     };
     server.inject(options).then((response) => {
       expect(response.payload.length).toBe(6);
@@ -25,7 +26,8 @@ describe('checking if the write route works or not', () => {
   test('checking if the status code is 200', (done) => {
     const options = {
       method: 'POST',
-      url: '/write/parth',
+      url: '/write',
+      payload: { longUrl: 'parth' },
     };
     server.inject(options).then((response) => {
       expect(response.statusCode).toBe(200);
@@ -35,7 +37,8 @@ describe('checking if the write route works or not', () => {
   test('checking if the smae url being written again gives an error', (done) => {
     const options = {
       method: 'POST',
-      url: '/write/parth',
+      url: '/write',
+      payload: { longUrl: 'parth' },
     };
     server.inject(options).then((response) => {
       expect(response.statusCode).toBe(200);
