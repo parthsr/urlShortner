@@ -1,5 +1,4 @@
 const Models = require('../../../models');
-const createShort = require('../../utils/helpers/createShort');
 
 const recursion = (longUrl, shortUrl, start, end) => {
   const shortUrlnew = shortUrl.slice(start, end);
