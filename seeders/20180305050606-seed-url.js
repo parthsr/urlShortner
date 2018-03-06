@@ -14,7 +14,7 @@ module.exports = {
       }], {});
     */
     const obj = objCreation(1000000);
-    return Models.urls.bulkCreate(Object.values(obj));
+    return queryInterface.bulkInsert('urls', Object.values(obj), {});
     // return queryInterface.bulkInsert('urls', obj, {});
   },
 

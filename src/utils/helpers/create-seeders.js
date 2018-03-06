@@ -19,6 +19,8 @@ const objCreation = (max) => {
     obj[shortUrl] = {
       shortUrl,
       longUrl,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     };
   }
   return obj;
