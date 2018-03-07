@@ -1,4 +1,6 @@
 const write = require('./write');
+const read = require('./read');
+const ping = require('./ping');
 
 module.exports = [{
   method: 'GET',
@@ -6,4 +8,4 @@ module.exports = [{
   handler: (request, reply) => {
     reply('HelloWorld');
   },
-}].concat(write);
+}].concat(write, read, ping);
