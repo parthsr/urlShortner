@@ -1,9 +1,13 @@
 const Hapi = require('hapi');
 const routes = require('./routes');
-const Good = require('good-console');
+const Good = require('good');
+
 
 const server = new Hapi.Server();
-
+server.connection({
+  host: 'localhost',
+  port: Number(8080),
+});
 server.register({
   register: Good,
   options: {
@@ -25,10 +29,7 @@ server.register({
     throw err;
   }
 });
-server.connection({
-  host: 'localhost',
-  port: Number(8080),
-});
+
 server.route(routes);
 if (!module.parent) {
   server.start((err) => {
