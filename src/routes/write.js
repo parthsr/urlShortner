@@ -1,13 +1,17 @@
 const recursion = require('../../src/utils/helpers/recursion');
 const shortUrlFunction = require('../../src/utils/helpers/createShort');
+const redisUtils = require('../utils/helpers/redisUtils');
 
-module.exports = [{
+module.exports = client => [{
   method: 'POST',
   path: '/write',
   handler: (request, reply) => {
     const { longUrl } = request.payload;
-    const shortUrl = shortUrlFunction(longUrl);
-    reply(recursion(longUrl, shortUrl, 0, 6));
+    const shortLongUrl = shortUrlFunction(longUrl);
+    recursion(longUrl, shortLongUrl, 0, 6).then((shortUrl) => {
+      redisUtils.redisWrite(longUrl, shortUrl, client);
+      reply(shortUrl);
+    });
   },
 }];
 
